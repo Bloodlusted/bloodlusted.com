@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
+:root{
+    --background-color: #000000;
+    --secondary-color: #bbbbbb;
+}
+*{
+    font-family: 'Jacquard 24', system-ui;
+    font-style: italic;
+    font-size: 3em
+}
+
+body{
+    background-color: var(--background-color) !important;
+}
+h1,h2,h3,h4,h5,h6,p,span,td,a{
+    cursor: pointer;
+}
+canvas.particles-js-canvas-el{
+    position: absolute;
+    height: 100% !important;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -10000;
+    margin: 0px;
+}
+
+.hero_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-bottom:0.5em;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.buttons a{
+    color:#fff;
+    line-height:30px;
+    font-size:30px;
+    margin: 0 20px;
+    text-decoration:none;
+  
+}
+.buttons a i{
+    line-height:30px;
+    font-size:1.5rem;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+.buttons a:hover i{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.25);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.25);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.25);
+    transition: all 200ms ease-in;
+    transform: scale(1.25);
+    color: #ff0000;
+}
+
+@media (max-width: 500px) {
+    .hero_section {
+        transform: scale(0.66);
+        margin-right: 30%;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero_section {
+        transform: scale(0.5);
+        margin-right: 40%;
+    }
+}
