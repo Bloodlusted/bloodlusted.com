@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) --> 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS5DRCX89L"></script> 
+        <script> 
+            window.dataLayer = window.dataLayer || []; 
+            function gtag(){dataLayer.push(arguments);} 
+            gtag('js', new Date()); 
+            gtag('config', 'G-YS5DRCX89L'); 
+        </script>
+        <link rel="icon" href="./img/icon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="./img/icon.png">
+        <meta name="color-scheme" content="light only">
+        <meta name="msapplication-TileImage" content="./img/icon.png">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="The most accurate and extensive Singapore NRIC & FIN Generator and Validator. Generate all possible NRICs for any given year range.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style/nric.css" type="text/css"/>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <title>NRIC Generator and Validator - Bloodlusted</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a class="navbar-brand btn" href="index.html">Home</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn" href="#">NRIC</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="wrapper">
+            <div class="container">
+                <h1>Generate NRIC</h1>
+                <form id="single-nric-form">
+                    <div class="input-section">
+                        <label for="category">Type</label>
+                        <select id="category" required>
+                            <option value="Singaporean">Singaporean</option>
+                            <option value="Foreigner">Foreigner</option>
+                        </select>
+                        <br>
+                        <label id="year-label" for="year">Year of Birth</label>
+                        <input type="number" id="year-of-birth" min="1900" max="2099" required>
+                        <select id="year-of-issuance" style="display: none;" required>
+                            <option value="1999">1900 - 1999</option>
+                            <option value="2000">2000 - 2021</option>
+                            <option value="2022">2022 - 2099</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button class="cssbuttons-io" type="submit"><span>Generate</span></button>
+                    <div id="generated-nric"></div>
+                    <button id="copy-button" type="button" title="Copy to Clipboard"><i class="fa-regular fa-copy"></i></button>
+                    <div id="copy-message"></div>
+                </form>
+            </div>
+            <div class="container">
+                <h1>Validate NRIC</h1>
+                <form id="validate-form">
+                    <div class="input-section">
+                        <label for="nric" style="font-size: 1.6em; padding-bottom: 30px">Enter NRIC</label>
+                        <input type="text" id="nric" pattern="^[sStTfFgGmM]\d{7}[a-zA-Z]$" placeholder="e.g. S9999999Z" style="margin-bottom:50px; font-size: 2em;" required>
+                    </div>
+                    <br>
+                    <button class="cssbuttons-io" type="submit"><span>Validate</span></button>
+                    <div id="validation-result"></div>
+                </form>
+            </div>
+            <div class="container">
+                <h1>Generate All NRICs</h1>
+                <form id="nric-form">
+                    <div class="input-section">
+                        <label for="min-year">Min Year</label>
+                        <input type="number" id="min-year" min="1900" max="2099" required>
+                        <br>
+                        <label for="max-year">Max Year</label>
+                        <input type="number" id="max-year" min="1900" max="2099" required>
+                    </div>
+                    <br>
+                    <button class="cssbuttons-io"><span>Generate</span></button>
+                    <div id="generation-message"></div>
+                </form>
+            </div>
+        </div>
+        <div class="buttons social">
+            <a href="https://www.linkedin.com/in/ashwin-edward/" target="_blank" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:goooglewinz@gmail.com" title="Email">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <a href="https://github.com/Bloodlusted" target="_blank" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+        <img src="https://2no.co/bloodlusted.ico" alt="icon" width="1" height="1">
+        <div id="particles-js"></div>
+        <script src="./js/script.js"></script>
+        <script src="./js/particles.min.js"></script>
+        <script src="./js/particles.js"></script>
+    </body>
+</html>

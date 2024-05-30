@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Elymaic&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+  margin: 0;
+  height: 100vh;
+}
+
+canvas.particles-js-canvas-el {
+  position: absolute;
+  height: 100% !important;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -10000;
+  margin: 0px;
+}
+
+#particles-js {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -10000;
+  top:0;
+  left:0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.container {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 1.2%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px red;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+h1 {
+  font-size: 2em;
+  padding-bottom: 5%;
+  font-family: "Noto Sans Elymaic", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 0.4px;
+  padding-bottom: 10px;
+  background: linear-gradient(to right, #f57c19, #f1271e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+form {
+  margin: 20px 0;
+  width: 100%;
+}
+
+label {
+  margin: 10px 0;
+  display: block;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
+.input-section {
+  margin-top: -20px;
+  width: 100%;
+}
+
+input, select {
+  padding: 1%;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.3em;
+  width: 70%;
+  box-sizing: border-box;
+  border: 1px solid hotpink;
+  box-shadow: 0 0 5px hotpink;
+}
+
+input::placeholder {
+  color: gray;
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+button {
+  padding: 1% 2%px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#validation-result, #generated-nric {
+  margin-top: 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.correct-nric, #generated-nric {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#copy-button {
+  background: none;
+  border: 2px solid #007bff;
+  color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+#copy-button:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#copy-message {
+  margin-top: 10px;
+  color: #03c04a;
+}
+
+#generation-message {
+  margin-top: 20px;
+  color: red;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.navbar-brand {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin-left: 2rem;
+}
+.navbar-brand:hover {
+  color: #ffffff;
+}
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 4rem;
+}
+.nav-item {
+    display: inline;
+}
+.nav-link {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        transform: scale(0.8);
+        padding-top: 50em;
+        margin-bottom: -7.5em;
+    }
+    .navbar-brand, .nav-link {
+        font-size: 1.1rem;
+    }
+    .social {
+      position: static !important;
+      margin-top: -2em !important;
+      padding-bottom: 2em !important;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  .wrapper {
+      padding-top: 90em;
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (max-width: 700px) and (max-height: 390px) {
+  .wrapper {
+      padding-top: 80em;
+      transform: scale(0.8);
+      margin-bottom: -10em;
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (min-width: 700px) and (max-height: 600px) {
+  .wrapper {
+      padding-top: 70em;
+      transform: scale(0.9);
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (min-width: 700px) and (max-width: 900px) and (max-height: 360px) {
+  .wrapper {
+      padding-top: 60em;
+      transform: scale(0.9);
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (min-width: 700px) and (max-width: 900px) and (min-height: 390px) and (max-height: 430px) {
+  .wrapper {
+      padding-top: 60em;
+      transform: scale(0.9);
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (min-width: 700px) and (max-width: 900px) and (min-height: 1000px) {
+  .wrapper {
+      padding-top: 40em;
+      margin-bottom: 8em;
+  }
+  .social {
+    position: static !important;
+  }
+
+}
+
+@media (min-width: 900px) and (max-width: 920px) and (min-height: 400px) and (max-height: 420px) {
+  .wrapper {
+      padding-top: 80em;
+  }
+  .social {
+    position: static !important;
+  }
+}
+
+@media (min-width: 1020px) and (max-width: 1180px) and (min-height: 760px) and (max-height: 820px) {
+  .wrapper {
+      padding-top: 55em;
+      margin-bottom: 5em;
+  }
+  .social {
+    position: static !important;
+  }
+}
+
+.cssbuttons-io {
+    position: relative;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    width: 140px;
+    border-radius: 0.8em;
+    cursor: pointer;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: ghostwhite;
+    overflow: hidden;
+    border: 1px solid blueviolet;
+    box-shadow: 0 0 5px blueviolet;
+  }
+  
+  .cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6em 0.6em 0.6em 0.6em;
+  }
+  
+  .cssbuttons-io::before,
+  .cssbuttons-io::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .cssbuttons-io::before {
+    content: "";
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  }
+  
+  .cssbuttons-io:hover::before {
+    transform: translate3d(100%, 0, 0);
+  }
+  
+  .cssbuttons-io:active {
+    transform: scale(0.95);
+  }
+
+.btn {
+    --border-color: linear-gradient(-45deg, #f1271e, #ff0000, #5500ff);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #ffffff;
+    color: var(--color);
+    cursor: pointer;
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+  
+  .btn::after,
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+  
+    50% {
+      background-position: 70% 100%;
+    }
+  
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+  
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+  
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+  
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }
+
+  .social {
+    transform: scale(0.66) !important;
+    bottom: 4em;
+    position: absolute;
+    display: flex;
+    gap: 1em;
+  }
+
+  .buttons a{
+    color:#fff;
+    line-height:30px;
+    font-size:30px;
+    margin: 0 20px;
+    text-decoration:none;
+}
+
+.buttons a i{
+    line-height:30px;
+    font-size:4.5rem;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+.buttons a:hover i{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.25);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.25);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.25);
+    transition: all 200ms ease-in;
+    transform: scale(1.25);
+    color: #ff0000;
+}
+  

@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 :root{
     --background-color: #000000;
     --secondary-color: #bbbbbb;
-}
-*{
-    font-family: 'Jacquard 24', system-ui;
-    font-style: italic;
-    font-size: 3em
 }
 
 body{
@@ -14,6 +10,13 @@ body{
 }
 h1,h2,h3,h4,h5,h6,p,span,td,a{
     cursor: pointer;
+}
+
+.bloodlusted {
+    font-family: 'Jacquard 24', system-ui;
+    font-style: italic;
+    font-size: 7.5em;
+    margin-right: 0.3em;
 }
 canvas.particles-js-canvas-el{
     position: absolute;
@@ -26,6 +29,15 @@ canvas.particles-js-canvas-el{
     margin: 0px;
 }
 
+#particles-js {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -10000;
+    top:0;
+    left:0;
+  }
+
 .hero_section {
     display: flex;
     align-items: center;
@@ -33,21 +45,13 @@ canvas.particles-js-canvas-el{
     min-height: 100vh;
     box-sizing: border-box;
     flex-direction: column;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-bottom:0.5em;
-    flex-direction: column;
+    margin-top: -4em;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 3.5em;
 }
 
 .buttons a{
@@ -56,11 +60,11 @@ canvas.particles-js-canvas-el{
     font-size:30px;
     margin: 0 20px;
     text-decoration:none;
-  
 }
+
 .buttons a i{
     line-height:30px;
-    font-size:1.5rem;
+    font-size:4.5rem;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1); 
     -ms-transition: all 200ms ease-in;
@@ -84,16 +88,342 @@ canvas.particles-js-canvas-el{
     color: #ff0000;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+.navbar-brand {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin-left: 2rem;
+}
+.navbar-brand:hover {
+  color: #ffffff;
+}
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 4rem;
+}
+.nav-item {
+    display: inline;
+}
+.nav-link {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: #ffffff;
+}
+
 @media (max-width: 500px) {
     .hero_section {
-        transform: scale(0.66);
-        margin-right: 30%;
+        transform: scale(0.7);
+        margin-top: 0em;
+    }
+    .navbar-brand, .nav-link {
+        font-size: 1.1rem;
+    }
+    .social {
+        padding-top: 3em;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-height: 600px) {
     .hero_section {
-        transform: scale(0.5);
-        margin-right: 40%;
+        transform: scale(0.8);
+        margin-top: 0em;
+    }
+    .navbar-brand, .nav-link {
+        font-size: 1.1rem;
+    }
+
+}
+@media (max-width: 700px) and (max-height: 390px) {
+    .hero_section {
+        padding-top: 6em;
+    }
+    .social {
+        padding-top: 3em;
+        transform: scale(0.9) !important;
+        margin-bottom: -5em;
     }
 }
+
+@media (min-width: 700px) and (max-height: 600px) {
+    .hero_section {
+        padding-top: 6em;
+    }
+    .social {
+        padding-top: 3em;
+        margin-bottom: -3em;
+    }
+  
+  }
+
+.btn {
+    --border-color: linear-gradient(-45deg, #ff0000, #ff0000, #5500ff);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #ffffff;
+    color: var(--color);
+    cursor: pointer;
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+  
+  .btn::after,
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+  
+    50% {
+      background-position: 70% 100%;
+    }
+  
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+  
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+  
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+  
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }
+  
+  .social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-top: 2em;
+    margin-bottom:-2em;
+  }
+  
+  .up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .card1 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .gmail {
+    margin-top: 1.5em;
+    margin-left: 1.0em;
+    fill: #E53935;
+  }
+  
+  .card2 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .linkedin {
+    margin-top: 1.5em;
+    margin-left: -1.2em;
+    fill: #0077b5;
+  }
+  
+  .card3 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .github {
+    margin-top: -0.6em;
+    margin-left: 1.2em;
+  }
+  
+  .card4 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+    position:relative;
+  }
+  
+  .discord {
+    margin-top: -0.6em;
+    margin-left: -1.0em;
+    fill: #5865F2;
+  }
+  
+  .card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #E53935;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .card1:hover .gmail {
+    fill: white;
+  }
+  
+  .card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #0077b5;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .card2:hover .linkedin {
+    fill: white;
+  }
+  
+  .card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .card3:hover .github {
+    fill: white;
+  }
+  
+  .card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #5865F2;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .card4:hover .discord {
+    fill: white;
+  }
+
+  .tooltip-text {
+    font-family: "Poppins", sans-serif;
+    font-size: large;
+    visibility: hidden;
+    width: 120px;
+    background-color: #5865F2;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }

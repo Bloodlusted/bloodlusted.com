@@ -3,7 +3,7 @@
 particlesJS('particles-js', {
 	particles: {
 		number: {
-			value: 100,
+			value: 75,
 			density: {
 				enable: true,
 				value_area: 800
@@ -39,7 +39,7 @@ particlesJS('particles-js', {
 			}
 		},
 		size: {
-			value: 10,
+			value: 12,
 			random: true,
 			anim: {
 				enable: false,
@@ -78,7 +78,7 @@ particlesJS('particles-js', {
 				mode: 'repulse'
 			},
 			onclick: {
-				enable: true,
+				enable: particlesClick,
 				mode: 'push'
 			}
 		},
@@ -88,7 +88,7 @@ particlesJS('particles-js', {
 				duration: 0.4
 			},
 			'push' : {
-				particles_nb: 4
+				particles_nb: 3
 			}
 		}
 	},
