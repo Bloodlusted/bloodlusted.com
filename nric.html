@@ -15,13 +15,13 @@
         <meta name="msapplication-TileImage" content="./img/icon.png">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="The most accurate and extensive Singapore NRIC & FIN Generator and Validator. Generate all possible NRICs for any given year range.">
+        <meta name="description" content="The best, most accurate and extensive Singapore NRIC & FIN Generator and Validator. Generate all possible NRICs for any given year range.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./style/nric.css" type="text/css"/>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <title>NRIC Generator and Validator - Bloodlusted</title>
+        <title>Ultimate NRIC & FIN Generator and Validator - Bloodlusted</title>
     </head>
     <body>
         <nav class="navbar">
@@ -44,7 +44,7 @@
                         </select>
                         <br>
                         <label id="year-label" for="year">Year of Birth</label>
-                        <input type="number" id="year-of-birth" min="1900" max="2099" required>
+                        <input type="number" id="year-of-birth" min="1900" max="2099" autocomplete="off" required>
                         <select id="year-of-issuance" style="display: none;" required>
                             <option value="1999">1900 - 1999</option>
                             <option value="2000">2000 - 2021</option>
@@ -62,11 +62,10 @@
                 <h1>Validate NRIC</h1>
                 <form id="validate-form">
                     <div class="input-section">
-                        <label for="nric" style="font-size: 1.6em; padding-bottom: 30px">Enter NRIC</label>
-                        <input type="text" id="nric" pattern="^[sStTfFgGmM]\d{7}[a-zA-Z]$" placeholder="e.g. S9999999Z" style="margin-bottom:50px; font-size: 2em;" required>
+                        <label for="nric" style="font-size: 1.6em; padding-bottom: 1.65em; margin-top: 2.45em">Enter NRIC/FIN</label>
+                        <input type="text" id="nric" pattern="^[sStTfFgGmM]\d{7}[a-zA-Z]$" maxlength="9" placeholder="e.g. S9999999Z" style="font-size: 2em;" autocomplete="off" spellcheck="false" required>
                     </div>
                     <br>
-                    <button class="cssbuttons-io" type="submit"><span>Validate</span></button>
                     <div id="validation-result"></div>
                 </form>
             </div>
@@ -75,10 +74,10 @@
                 <form id="nric-form">
                     <div class="input-section">
                         <label for="min-year">Min Year</label>
-                        <input type="number" id="min-year" min="1900" max="2099" required>
+                        <input type="number" id="min-year" min="1900" max="2099" autocomplete="off" required>
                         <br>
                         <label for="max-year">Max Year</label>
-                        <input type="number" id="max-year" min="1900" max="2099" required>
+                        <input type="number" id="max-year" min="1900" max="2099" autocomplete="off" required>
                     </div>
                     <br>
                     <button class="cssbuttons-io"><span>Generate</span></button>

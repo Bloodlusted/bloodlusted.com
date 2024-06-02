@@ -91,6 +91,13 @@ document.getElementById('single-nric-form').addEventListener('submit', function(
     }
     const nric = generateSingleNric(category, year);
     document.getElementById('generated-nric').textContent = nric;
+
+    const copyMessageElement = document.getElementById('copy-message');
+    const copyButtonIcon = document.getElementById('copy-button').querySelector('i');
+    copyMessageElement.textContent = '';
+    copyButtonIcon.classList.remove('fa');
+    copyButtonIcon.classList.add('fa-regular');
+
 });
 
 
@@ -139,20 +146,51 @@ document.getElementById('copy-button').addEventListener('click', function() {
 function validateNric(nric) {
     const identification = nric.slice(0, -1);
     const validNric = getIdentificationNo(identification);
-    return validNric === nric ? '<span style="color:#03c04a;font-size:1.2em">Valid <i class="fa-regular fa-circle-check"></i></span>' : `<span style="color:red;font-size:1.2em">Invalid <i class="fa-regular fa-circle-xmark"></i></span><br/>Correct NRIC: <span class="correct-nric">${validNric}</span>`;
+    if (validNric === nric) {
+        document.getElementById('nric').style.border = '2px solid #03c04a';
+        document.getElementById('nric').style.boxShadow = '0 0 5px #03c04a';
+        return '<span style="color:#03c04a;font-size:1.4em">Valid <i class="fa-regular fa-circle-check"></i></span>';
+    } else {
+        document.getElementById('nric').style.border = '2px solid red';
+        document.getElementById('nric').style.boxShadow = '0 0 5px red';
+        return `<span style="color:red;font-size:1.4em">Invalid <i class="fa-regular fa-circle-xmark"></i></span><br/>Correct NRIC: <span class="correct-nric">${validNric}</span>`;
+    }
 }
 
 
-document.getElementById('validate-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const nric = document.getElementById('nric').value.toUpperCase();
-    const result = validateNric(nric);
-    document.getElementById('validation-result').innerHTML = result;
+document.getElementById('nric').addEventListener('blur', function() {
+    this.style.border = '2px solid black';
+    this.style.boxShadow = 'none';
+});
+
+
+document.getElementById('nric').addEventListener('focus', function() {
+    this.style.border = '2px solid #007bff';
+    this.style.boxShadow = '0 0 5px #007bff';
 });
 
 
 document.getElementById('nric').addEventListener('input', function() {
     this.value = this.value.toUpperCase();
+    const pattern = new RegExp(this.pattern);
+    if (pattern.test(this.value)) {
+        const result = validateNric(this.value);
+        document.getElementById('validation-result').innerHTML = result;
+    }
+    else {
+        this.style.border = '2px solid #007bff';
+        this.style.boxShadow = '0 0 5px #007bff';
+        document.getElementById('validation-result').textContent = '';
+    }
+});
+
+
+document.getElementById('validate-form').addEventListener('submit', function(e) {
+    const nricInput = document.getElementById('nric');
+    const pattern = new RegExp(nricInput.pattern);
+    if (pattern.test(nricInput.value)) {
+        e.preventDefault();
+    }
 });
 
 
@@ -264,3 +302,25 @@ if (navigator.userAgent.match(/SamsungBrowser/i)) {
 }
 
 var particlesClick = false;
+
+document.querySelectorAll('input[type="number"]').forEach(input => {
+    input.addEventListener('keydown', function(event) {
+        const allowedKeys = [
+            'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Tab'
+        ];
+        const isCtrlCombination = event.ctrlKey || event.metaKey;
+        if (
+            allowedKeys.includes(event.key) || (!isNaN(Number(event.key)) && event.code !== 'Space') || isCtrlCombination
+        ) {
+            return true;
+        } else {
+            event.preventDefault();
+        }
+    });
+
+    input.addEventListener('input', function() {
+        if (this.value.length > 4) {
+            this.value = this.value.slice(0, 4);
+        }
+    });
+});

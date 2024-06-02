@@ -15,8 +15,9 @@ h1,h2,h3,h4,h5,h6,p,span,td,a{
 .bloodlusted {
     font-family: 'Jacquard 24', system-ui;
     font-style: italic;
-    font-size: 7.5em;
-    margin-right: 0.3em;
+    font-size: 9em;
+    color: red;
+    margin-right: 0.2em;
 }
 canvas.particles-js-canvas-el{
     position: absolute;
@@ -133,7 +134,7 @@ canvas.particles-js-canvas-el{
 
 @media (max-width: 500px) {
     .hero_section {
-        transform: scale(0.7);
+        transform: scale(0.6);
         margin-top: 0em;
     }
     .navbar-brand, .nav-link {
@@ -141,6 +142,7 @@ canvas.particles-js-canvas-el{
     }
     .social {
         padding-top: 3em;
+        transform: scale(1.1);
     }
 }
 
@@ -154,6 +156,14 @@ canvas.particles-js-canvas-el{
     }
 
 }
+
+@media (min-width: 500px) and (max-width: 600px) {
+    .hero_section {
+        transform: scale(0.8);
+    }
+}
+
+
 @media (max-width: 700px) and (max-height: 390px) {
     .hero_section {
         padding-top: 6em;
@@ -173,8 +183,14 @@ canvas.particles-js-canvas-el{
         padding-top: 3em;
         margin-bottom: -3em;
     }
-  
-  }
+}
+
+@media (min-width: 1000px) and (max-height: 800px) {
+    .hero_section {
+        padding-top: 6em;
+    }
+}
+
 
 .btn {
     --border-color: linear-gradient(-45deg, #ff0000, #ff0000, #5500ff);

@@ -1,15 +1,16 @@
 ## bloodlusted.com
 
-Code for my personal website. Keeping it extremely simple for now (WIP) 😊
+Code for my personal website. Keeping it extremely simple for now (WIP) 😊 <br/>
+Using a frontend framework at this point only causes unnecessary bloat. React/Vue when it gets more complex.
 
 Live site: https://bloodlusted.com <br/>
 
-![Image](./img/preview/homepage.png) <br/>
+![Image](./img/preview/main.png) <br/>
 
-## NRIC Generator and Validator
+## NRIC & FIN Generator and Validator
 
 ### What is this?
-The most accurate and extensive NRIC & FIN generator and validator out there: https://bloodlusted.com/nric
+The most accurate and extensive NRIC/FIN generator and validator out there: https://bloodlusted.com/nric
 
 #### Key Features
 
@@ -23,15 +24,14 @@ The most accurate and extensive NRIC & FIN generator and validator out there: ht
 
 ### Why did you make this?
 
-* Other NRIC generators out there fail to generate valid NRICs before 1968, either by not allowing their creation or generating invalid ones.
+* Other NRIC generators either do not support the latest "M" series FINS, do not support generating NRICs before 1968, or generate invalid pre-1968 NRICs.
 
-* This is the only NRIC generator that allows you to generate every possible NRIC that has ever existed, or will ever exist.<br/>
-Well, until 2099 at least.
+* This is the only NRIC generator that allows you to generate every possible NRIC that has ever existed, or will ever exist *(well, until 2099 at least)*.
 
 #### Story time
 I received a document from the government that was supposed to be password-protected by my NRIC, but the password didn't work. Tired of waiting for a reply *(they never did btw lol)*, I theorized that the staff might have accidentally used another person's NRIC as the password, so I decided to write a Python script to generate a wordlist containing every possible NRIC within my year range and leave the rest to John the Ripper.
 
-I managed to crack the password, but during my research on the NRIC algorithm, I found that all existing NRIC generator sites were lacking. They either did not support the new "M" series FINs, could not generate pre-1968 NRICs, or generated invalid pre-1998 NRICs. Additionally, none of them offered the ability to generate NRICs for a specified year range. So, I decided to translate my Python code to Javascript and create a web app out of it. You didn't have to read this far, but thank you.
+I managed to crack the password, but during my research on the NRIC algorithm, I found that all existing NRIC generator sites were lacking. They either did not support the new "M" series FINs, could not generate pre-1968 NRICs, or generated invalid pre-1968 NRICs. Additionally, none of them offered the ability to generate every possible NRIC for a specified year range. So, I decided to translate my Python code to Javascript and create a web app out of it. You didn't have to read this far, but thank you.
 
 <br/>
 
