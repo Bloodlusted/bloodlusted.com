@@ -44,6 +44,7 @@ canvas.particles-js-canvas-el {
 .container {
   text-align: center;
   background-image: url("../img/pattern.png");
+  background-color: #f0f0f0;
   padding: 1.2%;
   border-radius: 10px;
   box-shadow: 0 0 15px red;
@@ -78,11 +79,9 @@ h1::after {
 }
 
 @-moz-document url-prefix() {
-  .container {
-    max-width: 310px;
-  }
   h1 {
     letter-spacing: 0.2px;
+    font-size: 1.9em;
   }
 }
 
