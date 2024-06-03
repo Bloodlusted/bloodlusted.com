@@ -319,8 +319,8 @@ button {
   }
   .social {
     position: static !important;
-    margin-top: -10em !important;
-    transform: scale(0.6) !important;
+    margin-top: -11em !important;
+    transform: scale(0.50) !important;
   }
 
 }
@@ -345,7 +345,22 @@ button {
   .social {
     position: static !important;
     transform: scale(0.5) !important;
-    margin-top: -1em !important;
+    margin-top: 2em !important;
+  }
+}
+
+@media (min-width: 1185px) and (max-width: 1300px) and (min-height: 500px) and (max-height: 600px) {
+  .wrapper {
+      padding-top: 5em;
+      transform: scale(0.6);
+  }
+  .navbar-brand, .nav-link {
+    font-size: 1.0rem;
+  }
+  .social {
+    position: static !important;
+    transform: scale(0.4) !important;
+    margin-top: -3em !important;
     padding-bottom: 1em !important;
   }
 }
