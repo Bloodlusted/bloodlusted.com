@@ -92,6 +92,10 @@ document.getElementById('single-nric-form').addEventListener('submit', function(
     const nric = generateSingleNric(category, year);
     document.getElementById('generated-nric').textContent = nric;
 
+    const copyButton = document.getElementById('copy-button');
+    if (nric) {
+        copyButton.style.display = 'inline-block';
+    }
     const copyMessageElement = document.getElementById('copy-message');
     const copyButtonIcon = document.getElementById('copy-button').querySelector('i');
     copyMessageElement.textContent = '';
@@ -135,9 +139,6 @@ document.getElementById('copy-button').addEventListener('click', function() {
                 copyMessageElement.style.color = 'red';
             });
         document.body.removeChild(tempInput);
-    } else {
-        copyMessageElement.textContent = 'No NRIC to copy!';
-        copyMessageElement.style.color = 'red';
     }
 });
 
@@ -146,14 +147,22 @@ document.getElementById('copy-button').addEventListener('click', function() {
 function validateNric(nric) {
     const identification = nric.slice(0, -1);
     const validNric = getIdentificationNo(identification);
+    const nricField = document.getElementById('nric');
     if (validNric === nric) {
-        document.getElementById('nric').style.border = '2px solid #03c04a';
-        document.getElementById('nric').style.boxShadow = '0 0 5px #03c04a';
+        nricField.style.border = '2px solid #03c04a';
+        nricField.style.boxShadow = '0 0 5px #03c04a';
         return '<span style="color:#03c04a;font-size:1.4em">Valid <i class="fa-regular fa-circle-check"></i></span>';
     } else {
-        document.getElementById('nric').style.border = '2px solid red';
-        document.getElementById('nric').style.boxShadow = '0 0 5px red';
-        return `<span style="color:red;font-size:1.4em">Invalid <i class="fa-regular fa-circle-xmark"></i></span><br/>Correct NRIC: <span class="correct-nric">${validNric}</span>`;
+        nricField.style.border = '2px solid red';
+        nricField.style.boxShadow = '0 0 5px red';
+
+        let correctLabel;
+        if (nric.startsWith('S') || nric.startsWith('T')) {
+            correctLabel = 'Correct NRIC';
+        } else {
+            correctLabel = 'Correct FIN';
+        }
+        return `<span style="color:red;font-size:1.4em">Invalid <i class="fa-regular fa-circle-xmark"></i></span><br/>${correctLabel}: <span class="correct-nric">${validNric}</span>`;
     }
 }
 
