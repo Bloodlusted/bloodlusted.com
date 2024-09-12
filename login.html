@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS5DRCX89L"></script> 
+    <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-YS5DRCX89L'); 
+    </script>
+    <link rel="icon" href="./img/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/icon.png">
+    <meta name="color-scheme" content="light only">
+    <meta name="msapplication-TileImage" content="./img/icon.png">     
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Book CDC practical lesson and test slots quickly with our Automated Slots Booking System. Select your preferred slots and let our bot do the rest!">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://bloodlusted.com/bookings">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CDC Slots Booking System">
+    <meta property="og:description" content="Book CDC practical lesson and test slots quickly with our Automated Slots Booking System. Select your preferred slots and let our bot do the rest!">
+    <meta property="og:image" content="./img/icon.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CDC Slots Booking System">
+    <meta name="twitter:description" content="Book CDC practical lesson and test slots quickly with our Automated Slots Booking System. Select your preferred slots and let our bot do the rest!">
+    <meta name="twitter:image" content="./img/icon.png">
+    <title>Login - CDC Slots Booking</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            background: #000000;
+        }
+
+        .form {
+            --glow-color: rgb(176, 255, 251);
+            --glow-spread-color: rgba(123, 246, 255, 0.781);
+            --enhanced-glow-color: rgb(182, 71, 71);
+            --btn-color: #1a1a1a;
+            box-shadow: 0 0 15px var(--glow-color);
+            border: 2px solid var(--glow-color);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            color: var(--glow-color);
+            background-color: var(--btn-color);
+            border-radius: 20px;
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .info {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 2.4rem;
+            font-weight: 900;
+        }
+
+        .description {
+            color: #fff;
+            transform: translateY(25px);
+            font-size: 1.5rem;
+        }
+
+        .input-fields {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .input-fields input {
+            height: 2.5em;
+            margin-top: 40px;
+            width: 100%;
+            outline: none;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 12px;
+            border: 2.5px solid rgba(253, 253, 253, 0.363);
+            background-color: rgb(255 255 255 / 0.05);
+        }
+
+        .input-fields input:focus {
+            border: 1px solid rgb(99, 236, 241);
+            box-shadow: inset -1px -1px 5px rgba(255, 255, 255, .6),
+                        inset 10px 10px 10px rgba(0, 0, 0, .25);
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+
+        .action-btns {
+            display: flex;
+            margin-top: 40px;
+            gap: 0.5rem;
+        }
+
+        .verify {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #00f7ff;
+            text-shadow: none;
+            background: transparent;
+            box-shadow: transparent;
+            border: 1px solid #ffffff80;
+            transition: 0.5s ease;
+            user-select: none;
+            cursor: pointer;
+            width: 100%;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .verify:hover,:focus {
+            color: #ffffff;
+            background: #00eeff;
+            border: 1px solid #00e1ff;
+            text-shadow: 0 0 5px #ffffff;
+            box-shadow: 0 0 5px #00e1ff,
+                        0 0 20px #00e1ff,
+                        0 0 50px #00e1ff,
+                        0 0 100px #00e1ff;
+        }
+        canvas.particles-js-canvas-el{
+            position: absolute;
+            height: 100% !important;
+            width: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: -10000;
+            margin: 0px;
+        }
+
+        #particles-js {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: -10000;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" class="form">
+        <div class="info">
+            <span class="title">CDC Slots Booking</span>
+            <p class="description">Enter your CDC Password</p>
+        </div>
+        <div class="input-fields">
+            <input id="password" required>
+        </div>
+        <div class="action-btns">
+            <button type="submit" class="verify">Login</button>
+        </div>
+    </form>
+    <div id="particles-js"></div>
+    <script>var particlesClick = true;</script>
+    <script src="./js/particles.min.js"></script>
+    <script src="./js/particles.js"></script>
+    <script type="module" src="./js/login.js"></script>
+</body>
+</html>
