@@ -41,7 +41,7 @@ canvas.particles-js-canvas-el {
   max-width: 1280px;
 }
 
-.container {
+.nric-container {
   text-align: center;
   background-image: url("../img/pattern.png");
   background-color: #f0f0f0;
@@ -50,7 +50,7 @@ canvas.particles-js-canvas-el {
   box-shadow: 0 0 15px red;
   margin-bottom: 20px;
   width: 100%;
-  max-width: 300px;
+  max-width: 331px;
 }
 
 h1 {
@@ -111,6 +111,7 @@ input, select {
   border: 2px solid black;
   outline: none;
   border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 input:focus, select:focus {
@@ -152,7 +153,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 0.5px 10px;
   transition: all 0.3s ease;
   display: none;
 }
@@ -176,46 +177,87 @@ button {
 
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.5); /* Transparent background */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    font-weight: bold;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem;
+  background: rgba(0, 0, 0, 0.85); /* Gradient background */
+  box-shadow: 0 0 5px white;
+  border-bottom: 1px solid white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
 }
 .navbar-brand {
-    color: #ff0000;
-    text-decoration: none;
-    font-size: 1.3rem;
-    margin-left: 2rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin-left: 2rem;
 }
 .navbar-brand:hover {
-  color: #ffffff;
+  color: #ffdc00;
+  text-shadow: 0 0 8px rgba(255, 220, 0, 0.8);
 }
 .navbar-nav {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin-right: 4rem;
+  list-style: none;
+  gap: 1rem;
 }
 .nav-item {
-    display: inline;
+  margin-left: 1rem;
+}
+.nav-align {
+  margin-right: 2rem;
 }
 .nav-link {
-    color: #ff0000;
-    text-decoration: none;
-    font-size: 1.3rem;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
 }
 .nav-link:hover {
-    color: #ffffff;
+  color: #ffeaa7;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+.nav-link i {
+  margin-right: 8px;
+}
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.navbar-toggler {
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler:hover {
+background-color: rgba(255, 220, 0, 0.8);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+@media (max-width: 992px) {
+  .navbar-nav {
+      text-align: center;
+      width: 100%;
+  }
+  .nav-item {
+      margin-left: 0;
+  }
 }
 
 @media (max-width: 500px) {
@@ -223,9 +265,6 @@ button {
         transform: scale(0.8);
         padding-top: 50em;
         margin-bottom: -7.5em;
-    }
-    .navbar-brand, .nav-link {
-        font-size: 1.1rem;
     }
     .social {
       position: static !important;
@@ -243,9 +282,6 @@ button {
     position: static !important;
     margin-top: -2em !important;
     padding-bottom: 2em !important;
-  }
-  .navbar-brand, .nav-link {
-    font-size: 1.1rem;
   }
 
 }
@@ -340,9 +376,6 @@ button {
       padding-top: 7em;
       transform: scale(0.8);
   }
-  .navbar-brand, .nav-link {
-    font-size: 1.1rem;
-  }
   .social {
     position: static !important;
     transform: scale(0.5) !important;
@@ -354,9 +387,6 @@ button {
   .wrapper {
       padding-top: 5em;
       transform: scale(0.6);
-  }
-  .navbar-brand, .nav-link {
-    font-size: 1.0rem;
   }
   .social {
     position: static !important;
