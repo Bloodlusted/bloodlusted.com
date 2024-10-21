@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./img/agent.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./img/agent.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://bloodlusted.com/chatbot">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chatbot for Migrant Workers in Singapore">
+    <meta property="og:description" content="Interactive chatbot designed to help migrant workers in Singapore access important information about their rights, salary issues, and more.">
+    <meta property="og:image" content="./img/agent.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chatbot for Migrant Workers in Singapore">
+    <meta name="twitter:description" content="Interactive chatbot designed to help migrant workers in Singapore access important information about their rights, salary issues, and more.">
+    <meta name="twitter:image" content="./img/agent.png">
+    <title>Chatbot for Migrant Workers in Singapore</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive chatbot designed to help migrant workers in Singapore access important information about their rights, salary issues, and more.">
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <style>
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: Google Sans;
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            bottom: 0;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body style="background: #121212;">
+    <df-messenger
+      location="us-central1"
+      project-id="mw-chatbot-438009"
+      agent-id="b221e85e-1a70-48c2-b2e0-2dacbab1cc2a"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat chat-title="MW Chatbot"></df-messenger-chat>
+    </df-messenger>
+</body>
+</html>
